@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+{%if user%}
+<div><center><a style="margin-right:471px; position: absolute; ">Welcome, {{user.name}}</a><a style="margin-left: 554px" href="/blog/newpost" > POST NEW BLOG</a> <a style="margin-left: 422px;" href="/blog/userdetails/{{user.key().id()}}">Profile</a>  | <a style="margin-left: 0%;margin-top: -30px" href="/logout">Logout</a></center>
+</div>
+<hr><br><br>
+
+{% else %}
+<div><center><a style="margin-right:471px; ">Holla</a><a style="margin-left: 33px;" href="/login">LOGIN</a><a style="margin-left: 39%;margin-top: -30px" href="/signup">SIGN UP</a></center>
+</div>
+                      <!--<p >-->
+                        <!--<a  href="/login">Login</a>-->
+                        <!--<a  href="/signup">Sign Up</a>-->
+                          <hr>
+<h2><center><a  >BLOG</a></center></h2><br><br>
+{%endif%}
+<h3>New Posts</h3><br>
+{%for posts in posts%}
+SUBJECT :<a href="{{posts.key().id()}}">{{posts.subject}}</a>
+<div></div>
+<span style="margin-left:87%;">{{posts.submission_time.strftime("%b %d, %Y")}}</span></div>
+<hr>
+<br><br>
+{%endfor%}
+
+</body>
+</html>
+

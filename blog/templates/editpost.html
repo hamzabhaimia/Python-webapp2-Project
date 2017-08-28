@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BLOG</title>
+</head>
+<style type="text/css">
+    body{
+        font-family: sans-serif;
+        width: 800px;
+        margin: 0 auto;
+        padding: 10px;
+    }
+    .error{
+        color: red;
+    }
+    label{
+        display: block;
+        font-size: 20px;
+
+    }
+    input[type=text]{
+        width: 400px;
+        font-size: 20px;
+        padding: 2px;
+    }
+    textarea{
+        width: 400px;
+        height: 200px;
+        font-size: 17px;
+        font-family: monospace;
+
+    }
+    input[type=submit]{
+
+        font-size: 24px;
+    }
+    .s{
+        padding-left: 25%;
+    }
+
+
+</style>
+<body>
+<div><center><a style="margin-right:471px;position: fixed ">Welcome, {{user.name}}</a><a style="margin-left: 307px;" href='/blog/{{post}}'><-- BACK TO POST</a><a style="margin-left: 29%;margin-top: -30px" href="/logout">Logout</a></center>
+</div>
+<hr><br><br>
+<!--<h2><center><a href='/blog/{{post}}'><&#45;&#45; BACK TO POST</a></center></h2><br><br>-->
+<div class="s">
+<h1>Edit your blog</h1>
+<form method="post">
+    <input type="hidden" id="post_id" name="post_id" value="{{post}}">
+<label>
+        <div>Subject</div>
+        <input type="text" name="subject" value="{{subject}}"></label>
+    <label>
+        <div>Blog</div>
+        <textarea name="blog">{{blog}}</textarea>
+    </label>
+    {%if error%}
+    <div class="error">{{error}}</div>
+    {%endif%}
+
+
+            <button type="submit" >update</button>
+</form>
+</div>
+</body>
+</html>
+

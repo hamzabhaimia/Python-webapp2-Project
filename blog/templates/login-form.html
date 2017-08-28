@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Login</title>
+    <style type="text/css">
+      input[type=text]{
+        width: 30%;
+        font-size: 20px;
+        padding: 2px;
+    }
+      input[type=password]{
+        width: 30%;
+        font-size: 20px;
+        padding: 2px;
+    }
+      .label {text-align: right}
+      .error1 {color: red}
+      .error{color: red}
+      .s{
+        padding-left: 17%;
+      }
+      .a{
+         font-family: sans-serif;
+        width: 800px;
+        margin: 0 auto;
+        padding: 10px;
+        padding-top: 10%;
+        padding-left: 30%;
+      }
+      .ss{
+        padding-top: 2%;
+      }
+    </style>
+
+  </head>
+
+  <body>
+  <div class="a">
+    <div><h2>Login</h2>
+    <hr size="1px"  style="width: 28%; position: fixed"><br></div>
+    {%if error%}
+    <div class="error">
+    {{error}}</div>
+    {%endif%}
+    <form method="post">
+
+          <label>
+            <div>Username</div>
+               <input type="text" name="username" value="{{username}}">
+          </label>
+        <label>
+            <div> Password</div>
+            <input type="password" name="password" value="">
+
+      <div class="error1">
+        {{msg}}
+      </div><br>
+
+      <input type="submit" value="Login"><a class="s" href="/signup">Signup</a>
+
+    </form>
+
+    </div>
+  </body>
+
+</html>

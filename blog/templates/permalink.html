@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<style type="text/css">
+    .lik{
+        color: red;
+
+    }
+    p.test {
+    width: 45em;
+    word-wrap: break-word;
+}
+
+    .com{
+        width: 80%;
+        font-family: sans-serif;
+        padding-left: 20%;
+
+
+
+    }
+    .s{
+        font-family: sans-serif;
+        width: 900px;
+        margin: 0 auto;
+        padding: 10px;
+    }
+    p{
+            text-align:justify;
+    }
+    textarea[type=text]{
+        width: 800px;
+        height: 50px;
+        font-family: monospace;
+
+    }
+    .msg{
+        color: red;
+    }
+</style>
+<body>
+{%if user%}
+<div><center><a style="margin-right:473px;position: absolute ">{%if user%}Welcome, {{user.name}}{%else%}Holla{%endif%}</a><a style="margin-left: 524px;" href='/blog/'><-- BACK TO BLOG</a><a style="margin-left: 448px;" href="/blog/userdetails/{{user.key().id()}}">Profile</a> | <a style="margin-left: 0%;margin-top: -30px" href="/logout">Logout</a></center>
+</div>
+{%else%}
+<div><center><a style="margin-right:471px; ">{%if user%}Welcome, {{user.name}}{%else%}Holla{%endif%}</a><a style="margin-left: -23px;" href='/blog/'><-- BACK TO BLOG</a><a style="margin-left: 39%;margin-top: -30px" href="/login">Login</a></center>
+</div>
+
+{%endif%}
+<hr><br><br><br>
+
+<!--{%if user%}-->
+<!--Welcome, {{user.name}}-->
+<!--{%endif%}-->
+<!--<h2><center><a href="/blog/" ><&#45;&#45;BACK TO BLOG</a></center></h2><br><br>-->
+<div class="s">
+<div>
+
+    <a style="margin-right: 0%;position: absolute;">{{post.subject}}</a>
+<span style="margin-left:62%;">{%if user and post.user_id == user.key().id()%}<a style="margin-left:-3%;"  href="/blog/editpost/{{post.key().id()}}">Edit</a>{%endif%} <a  name="like" href="/blog/postlike/{{post.key().id()}}">Like</a>{%if user.like==1%}<a  name="like" href="/blog/dellike/{{post.key().id()}}">Unlike</a>{%endif%}  Posted by <a href="/blog/userdetails/{{post.getUserId()}}">{{post.getUserName()}}</a> On {{post.submission_time.strftime("%b %d, %Y")}}</span></div>
+<hr>
+    <p>{{post.blog}}</p><br><br>
+    Comments:({{comments_count}}) | Likes:({{like}}) <a class="lik" >{%if error%}{{error}}{%endif%}</a>
+    <!--<form method="post" role="form">-->
+        <!--<input type="hidden" name="like" value="update">-->
+        <!--<button type="submit">Like {{like}}</button></form>-->
+
+    <hr><br>
+<div class="com">
+ {%for c in comments%}
+    <br><p class="test">{{c.comment}}</p>
+    <br>
+    Commented By: <a href="/blog/userdetails/{{c.getUserId()}}"> {{c.getUserName()}}</a> on {{c.submission_time.strftime("%b %d, %Y")}}{%if user and c.user_id == user.key().id()%}&nbsp; <a style="color:blue" href="/blog/editcomment/{{post.key().id()}}/{{c.key().id()}}">Edit</a> <a style="color:blue" href="/blog/deletecomment/{{post.key().id()}}/{{c.key().id()}}">Delete</a>{%endif%}<br><hr>
+    {%endfor%}
+    </div>
+    <br>
+
+<hr><br>
+
+
+
+    <form method="post" action="\login">
+
+        <!--<input type="hidden" name="post_id" value="{{post.key().id()}}">-->
+        <div class="msg">{{msg}}</div>
+        <textarea type="text" name="comment"></textarea><br>
+        <input type="submit" value="Post Comment">
+    </form><br>
+
+
+
+
+
+</div>
+</body>
+</html>
+

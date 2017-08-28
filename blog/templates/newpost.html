@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BLOG</title>
+</head>
+<style type="text/css">
+    body{
+        font-family: sans-serif;
+        width: 800px;
+        margin: 0 auto;
+        padding: 10px;
+    }
+    .error{
+        color: red;
+    }
+    label{
+        display: block;
+        font-size: 20px;
+
+    }
+    input[type=text]{
+        width: 400px;
+        font-size: 20px;
+        padding: 2px;
+    }
+    textarea{
+        width: 400px;
+        height: 200px;
+        font-size: 17px;
+        font-family: monospace;
+
+    }
+    input[type=submit]{
+
+        font-size: 24px;
+    }
+    .s{
+        padding-left: 25%;
+    }
+
+
+
+</style>
+<body>
+<div><center><a style="margin-right:471px;position: absolute ">Welcome, {{user.name}}</a><a style="margin-left: 273px" href="/blog/" > <-- BACK TO BLOG</a><a style="margin-left: 39%;margin-top: -30px" href="/logout">Logout</a></center>
+</div>
+<hr><br><br>
+<!--<h2><center><a href="/blog/" ><&#45;&#45; BACK TO BLOG</a></center></h2><br><br>-->
+<div class="s">
+<h1>Post your blog</h1>
+<form method="post">
+
+    <label>
+        <div>Subject</div>
+        <input type="text" name="subject" value="{{subject}}"></label>
+    <label>
+        <div>Blog</div>
+        <textarea name="blog">{{blog}}</textarea>
+    </label>
+    <div class="error">{{error}}</div>
+        <input type="submit" value="submit">
+</form>
+</div>
+</body>
+</html>

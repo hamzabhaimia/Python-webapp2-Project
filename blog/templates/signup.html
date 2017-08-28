@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up</title>
+    <style type="text/css">
+        input[type=text]{
+        width: 30%;
+        font-size: 20px;
+        padding: 2px;
+    }
+      input[type=password]{
+        width: 30%;
+        font-size: 20px;
+        padding: 2px;
+    }
+        .s{
+            padding-left: 20%;
+            padding-top: -90%;
+        }
+        .d{
+            padding-bottom: 50%;
+        }
+        .e{
+             font-family: sans-serif;
+        width: 800px;
+        margin: 0 auto;
+        padding: 10px;
+            padding-top: 10%;
+            padding-left: 25%;
+        }
+
+    </style>
+</head>
+<body><div class="e">
+<h2>Sign Up</h2>
+
+<hr  size="1px" style="width: 30%; position: fixed"><br>
+<form method="post">
+
+    <label>
+        <div>User name</div>
+                    <input type="text" name="username" value="{{username}}">{{error_username}}
+
+    </label>
+
+
+        <label>
+            <div>Password</div>
+                <input type="password" name="password" value="">{{error_password}}</td>
+        </label>
+
+        <label>
+            <div>Confirm password</div>
+            <input type="password" name="verify" value="">{{error_verify}}
+
+        </label>
+
+
+            <label>
+                <div>email</div>
+                <input type="text" name="email" value="{{email}}">{{error_email}}
+
+            </label>
+        <br><br>
+    <input type="submit" value="Signup"> <a class="s" href="/login">Login</a>
+
+
+</form>
+
+</div>
+</body>
+</html>

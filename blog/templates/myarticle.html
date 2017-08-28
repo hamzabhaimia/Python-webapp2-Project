@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style type="text/css">
+    .s{
+        font-family: sans-serif;
+        width: 800px;
+        margin: 0 auto;
+        padding: 10px;
+        padding-right: 35%;
+        position: absolute;
+    }
+    .d{
+        font-family: sans-serif;
+        margin: 0 auto;
+        padding: 10px;
+        padding-right: 2%;
+        padding-left: 69%;
+
+
+
+    }
+
+    td{
+        width: 20%;
+
+    }
+
+
+
+
+
+</style>
+<body>
+
+{%if user%}
+<div><center><a style="margin-right:471px;position: absolute ">{{users.name}}, PROFILE</a><a style="margin-left: 524px" href="/blog/" ><-- BACK TO BLOG</a><a style="margin-left: 39%;margin-top: -30px" href="/logout">Logout</a></center>
+</div>
+<hr><br><br>
+
+<!--&lt;!&ndash;{% else %}&ndash;&gt;-->
+<!--&lt;!&ndash;<div><center><a style="margin-right:471px; ">Holla</a><a style="margin-left: 33px;" href="/login">LOGIN</a><a style="margin-left: 39%;margin-top: -30px" href="/signup">SIGN UP</a></center>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+                      <!--&lt;!&ndash;<p >&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a  href="/login">Login</a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a  href="/signup">Sign Up</a>&ndash;&gt;-->
+                          <!--<hr>-->
+<!--<h2><center><a  >BLOG</a></center></h2><br><br>-->
+<!--</p>-->
+<!--{%endif%}-->
+<div class="s">
+<h3>Blog's Posted By {{users.name}}:</h3><br>
+{%for posts in posts%}<div>
+SUBJECT :<a style="margin-right: 20%;position: absolute " href="/blog/{{posts.key().id()}}">{{posts.subject}}</a><a style="margin-left: 47%;position: absolute">{{posts.submission_time.strftime("%b %d, %Y")}}</a></div>
+<hr>
+<br><br>
+{%endfor%}
+
+<br>
+</div>
+<div class="d">
+<h3>Profile Details :</h3><br>
+        <table border="solid">
+            <tr>
+
+                <td>NAME</td>
+                <td>{{users.name}}</td>
+            </tr>
+            <tr>
+                <td>EMAIL</td>
+                <td>{{users.email}}</td>
+            </tr>
+                    </table>
+    </div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
